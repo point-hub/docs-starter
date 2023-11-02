@@ -1,10 +1,13 @@
 ---
+title: 'Docs Starter'
+titleTemplate: 'Web Documentation Template'
+
 # https://vitepress.dev/reference/default-theme-home-page
 layout: home
 
 hero:
   name: "Docs Starter"
-  text: "Web documentation template"
+  text: "Web Documentation Template"
   tagline: My great project tagline
   actions:
     - theme: brand
