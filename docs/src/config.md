@@ -1,37 +1,39 @@
-import { type DefaultTheme } from 'vitepress'
-import { withMermaid } from 'vitepress-plugin-mermaid'
+# Config
 
-// https://vitepress.dev/reference/site-config
+The config file `docs/config.ts` allows you to customize various aspects of your VitePress site. Consult the [config reference](https://vitepress.dev/reference/site-config) for full details on all config options 
+
+## Navigation
+
+The Nav is the navigation bar displayed on top of the page. It contains the site title, global menu links, etc.
+
+You may define `themeConfig.nav` option to add links to your nav.
+
+```ts
 export default withMermaid({
-  lang: 'en-US',
-  title: 'Docs Starter',
-  description: 'template for Web documentation',
-  cleanUrls: true,
-  srcDir: './src',
-  head: [['link', { rel: 'icon', type: 'image/png', href: '/favicon-32x32.png' }]],
   themeConfig: {
-    // https://vitepress.dev/reference/default-theme-config
-    logo: '/icon.png',
-    nav: nav(),
-    sidebar: {
-      '/': { base: '', items: sidebarDocs() },
-    },
-    socialLinks: [{ icon: 'github', link: 'https://github.com/point-hub/docs-starter' }],
-    search: {
-      provider: 'local',
-    },
-    footer: {
-      message: 'Released under the MIT License.',
-      copyright: 'Copyright © 2024 Pointhub',
-    },
-  },
-})
+    nav: nav()
+  }
+}
 
 function nav(): DefaultTheme.NavItem[] {
   return [
     { text: 'Home', link: '/' },
     { text: 'Examples', link: '/markdown-examples' },
   ]
+}
+```
+
+## Sidebar
+
+The sidebar is the main navigation block for your documentation. You can configure the sidebar menu in `themeConfig.sidebar`.
+
+```ts
+export default withMermaid({
+  themeConfig: {
+    sidebar: {
+      '/': { base: '', items: sidebarDocs() },
+    }
+  }
 }
 
 function sidebarDocs(): DefaultTheme.SidebarItem[] {
@@ -60,3 +62,4 @@ function sidebarDocs(): DefaultTheme.SidebarItem[] {
     },
   ]
 }
+```
