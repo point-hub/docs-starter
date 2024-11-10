@@ -8,7 +8,10 @@ export default withMermaid({
   description: 'template for Web documentation',
   cleanUrls: true,
   srcDir: './src',
-  head: [['link', { rel: 'icon', type: 'image/png', href: '/favicon-32x32.png' }]],
+  head: [
+    ['link', { rel: 'icon', type: 'image/png', href: '/favicon-32x32.png' }],
+    ['link', { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css' }],
+  ],
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     logo: '/icon.png',
