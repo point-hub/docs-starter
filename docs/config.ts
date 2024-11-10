@@ -10,7 +10,7 @@ export default withMermaid({
   srcDir: './src',
   head: [
     ['link', { rel: 'icon', type: 'image/png', href: '/favicon-32x32.png' }],
-    ['link', { rel: 'stylesheet', href: '/fontawesome-6.min.css' }],
+    ['link', { rel: 'stylesheet', href: 'https://assets.pointhub.net/assets/fontawesome-6/css/all.min.css' }],
   ],
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
