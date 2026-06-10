@@ -1,14 +1,14 @@
 ---
-title: 'Docs Starter'
+title: 'Developer Portal'
 titleTemplate: 'Web Documentation Template'
 
 # https://vitepress.dev/reference/default-theme-home-page
 layout: home
 
 hero:
-  name: "Docs Starter"
-  text: "Web Documentation Template"
-  tagline: My great project tagline
+  name: "Pointhub"
+  text: "Developer Portal"
+  tagline: "The central hub for developers"
   actions:
     - theme: brand
       text: Getting Started

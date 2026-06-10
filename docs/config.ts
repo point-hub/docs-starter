@@ -4,7 +4,7 @@ import { withMermaid } from 'vitepress-plugin-mermaid'
 // https://vitepress.dev/reference/site-config
 export default withMermaid({
   lang: 'en-US',
-  title: 'Docs Starter',
+  title: 'Developer Portal',
   description: 'template for Web documentation',
   cleanUrls: true,
   srcDir: './src',
@@ -25,7 +25,7 @@ export default withMermaid({
     },
     footer: {
       message: 'Released under the MIT License.',
-      copyright: 'Copyright © 2024 Pointhub',
+      copyright: 'Copyright © 2026 Pointhub',
     },
   },
 })
