@@ -1,21 +1,17 @@
 # ---------------------------------------------------------------------------
 # stage 1 - builder
 # ---------------------------------------------------------------------------
-FROM node:20 as builder
-
-# install bun
-RUN npm install -g bun
+FROM oven/bun:1 AS builder
 
 # setup default user and working directory
-USER node
-WORKDIR /home/node/app
+WORKDIR /app
 
 # install dependencies
-COPY --chown=node:node package.json bun.lockb ./
+COPY --chown=node:node package.json bun.lock ./
 RUN bun install --frozen-lockfile
 
 # copy source code
-COPY --chown=node:node . .
+COPY . .
 
 # build docs
 RUN bun docs:build
@@ -23,10 +19,10 @@ RUN bun docs:build
 # ---------------------------------------------------------------------------
 # stage 2 - runner
 # ---------------------------------------------------------------------------
-FROM nginx:1.25.3-alpine as runner
+FROM nginx:1.29-alpine as runner
 
 # copy nginx configuration server block file
 COPY .nginx/default.conf /etc/nginx/conf.d/default.conf
 
 # copy web files
-COPY --from=builder /home/node/app/docs/.vitepress/dist /usr/share/nginx/html
+COPY --from=builder /app/docs/.vitepress/dist /usr/share/nginx/html
