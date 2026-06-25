@@ -33,7 +33,6 @@ export default withMermaid({
 function nav(): DefaultTheme.NavItem[] {
   return [
     { text: 'Home', link: '/' },
-    { text: 'Examples', link: '/markdown-examples' },
   ]
 }
 
@@ -43,8 +42,23 @@ function sidebarDocs(): DefaultTheme.SidebarItem[] {
       text: 'Documentation',
       items: [
         { text: 'Introduction', link: '/introduction' },
-        { text: 'Config', link: '/config' },
-        { text: 'Diagram Tools', link: '/diagram-tools' },
+        { text: 'Sitemap', link: '/sitemap' },
+      ],
+    },
+    {
+      text: 'Features',
+      items: [
+        { text: '...', link: '/' },
+        { text: '...', link: '/' },
+        { text: '...', link: '/' },
+      ],
+    },
+    {
+      text: 'Resources',
+      items: [
+        { text: 'Architecture Decision Records', link: '/architecture-decision-records/' },
+        { text: 'Development Roadmap', link: '/development-roadmap/' },
+        { text: 'Developer Resources', link: '/developer-resources/' },
       ],
     },
     {
@@ -57,6 +71,8 @@ function sidebarDocs(): DefaultTheme.SidebarItem[] {
     {
       text: 'References',
       items: [
+        { text: 'Config', link: '/config' },
+        { text: 'Diagram Tools', link: '/diagram-tools' },
         { text: 'Vitepress', link: 'https://vitepress.dev/' },
         { text: 'Mermaid.js', link: 'https://mermaid.js.org/' },
       ],
