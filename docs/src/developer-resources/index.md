@@ -6,7 +6,7 @@ Explains how data is organized and what kind of data can be stored in the system
 
 ## Entity Relationship Diagram
 
-An Entity Relationship Diagram (ERD) is a visual representation of the database structure used in the Simple Accounting application. It shows how data is organized and how different entities (tables) are related to each other.
+An Entity Relationship Diagram (ERD) is a visual representation of the database structure used in the Pointhub application. It shows how data is organized and how different entities (tables) are related to each other.
 
 - [Entity Relationship Diagram](/)
 
@@ -18,7 +18,7 @@ API Documentation describes how the system’s backend services can be accessed 
 
 ## Source Code Repository
 
-**The Backend Repository** contains the server-side logic of the Simple Accounting application. It is responsible for processing data, applying accounting rules, generating reports, and managing communication between the database and the frontend.
+**The Backend Repository** contains the server-side logic of the Pointhub application. It is responsible for processing data, applying accounting rules, generating reports, and managing communication between the database and the frontend.
 
 - [Backend Repository](https://github.com/)
 

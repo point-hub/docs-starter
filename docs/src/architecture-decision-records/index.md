@@ -1,6 +1,6 @@
 # Architecture Decision Records
 
-This section documents the brainstorming ideas and key decisions made during the development of Simple Accounting. 
+This section documents the brainstorming ideas and key decisions made during the development of Pointhub. 
 
 It explains not only what was built, but also why certain design and technical decisions were chosen. This helps the team:
 
