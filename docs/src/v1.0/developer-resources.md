@@ -18,7 +18,7 @@ API Documentation describes how the system’s backend services can be accessed 
 
 ## Source Code Repository
 
-**The Backend Repository** contains the server-side logic of the Pointhub application. It is responsible for processing data, applying accounting rules, generating reports, and managing communication between the database and the frontend.
+**The Backend Repository** contains the server-side logic of the Pointhub application. It is responsible for processing data, generating reports, and managing communication between the database and the frontend.
 
 - [Backend Repository](https://github.com/)
 
