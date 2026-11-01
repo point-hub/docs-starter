@@ -21,9 +21,15 @@ DOCS-STARTER
 ├── .nginx
 ├── docs
 │   ├── .vitepress
+│   ├── sidebars
+│   │   ├── v1.0.json
+│   │   └── v1.1.json
 │   ├── src
 │   │   ├── public
-│   │   └── index.md
+│   │   ├── v1.0
+│   │   │   └── index.md
+│   │   └── v1.1
+│   │       └── index.md
 │   └── config.ts
 └── README.md
 ```
@@ -38,7 +44,15 @@ The config file `docs/config.ts` allows you to customize various aspects of your
 
 ### Content
 
-You can put all your content in `/docs/src` directory.
+All documentation content is stored in the `/docs/src/{version}` directory, where `{version}` represents the documentation version (e.g., `v1.0`, `v1.1`).
+
+Each version has its own directory, allowing documentation to evolve independently without modifying previous versions.
+
+### Sidebars
+
+Sidebar configurations are stored in the `/docs/sidebars` directory. Each version has its own JSON configuration file (e.g., `v1.0.json`, `v1.1.json`).
+
+These files define the navigation structure for their corresponding documentation versions. This allows each version to have its own sidebar items and hierarchy.
 
 ### Workflows
 

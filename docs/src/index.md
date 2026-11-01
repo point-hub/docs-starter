@@ -12,10 +12,10 @@ hero:
   actions:
     - theme: brand
       text: Getting Started
-      link: /introduction
+      link: /v1.0/introduction
     - theme: alt
       text: Markdown Examples
-      link: /markdown-examples
+      link: /v1.0/markdown-examples
 
 
 features:

@@ -1,81 +1,120 @@
+
 import { type DefaultTheme } from 'vitepress'
 import { withMermaid } from 'vitepress-plugin-mermaid'
+import fs from 'node:fs'
+import path from 'node:path'
+import { fileURLToPath } from 'node:url'
 
-// https://vitepress.dev/reference/site-config
+import { getSidebar } from './sidebars'
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
+
+const srcAbsoluteDir = path.resolve(__dirname, './src')
+const sidebarAbsoluteDir = path.resolve(__dirname, './sidebars')
+
+// Detect available documentation versions.
+const versions: string[] = fs.existsSync(srcAbsoluteDir)
+  ? fs.readdirSync(srcAbsoluteDir).filter((file) => {
+      const fullPath = path.join(srcAbsoluteDir, file)
+
+      return (
+        fs.statSync(fullPath).isDirectory() &&
+        /^v\d+\.\d+$/.test(file)
+      )
+    })
+  : []
+
+// Sort versions using semantic version numbers.
+versions.sort((a, b) => {
+  const versionA = a.slice(1).split('.').map(Number)
+  const versionB = b.slice(1).split('.').map(Number)
+
+  for (let i = 0; i < 3; i++) {
+    if (versionA[i] !== versionB[i]) {
+      return versionB[i] - versionA[i]
+    }
+  }
+
+  return 0
+})
+
+// Determine the latest available version.
+const latestVersion = versions[0] ?? 'v1.0.0'
+
+// Generate version dropdown navigation.
+const navVersionDropdownItems: DefaultTheme.NavItem[] = versions.map(
+  (version) => ({
+    text: `${version}${version === latestVersion ? ' (Latest)' : ''}`,
+    link: `/${version}/introduction`,
+  }),
+)
+
+// Load individual sidebar configurations.
+const dynamicSidebar = getSidebar(
+  versions,
+  sidebarAbsoluteDir,
+)
+
+// Default sidebar for the root documentation.
+dynamicSidebar['/'] = [
+  {
+    text: 'Documentation',
+    items: [
+      {
+        text: 'Introduction',
+        link: `/${latestVersion}/introduction`,
+      },
+    ],
+  },
+]
+
 export default withMermaid({
   lang: 'en-US',
   title: 'Developer Portal',
-  description: 'template for Web documentation',
+  description: 'Template for Web documentation',
   cleanUrls: true,
   srcDir: './src',
+
   head: [
-    ['link', { rel: 'icon', type: 'image/png', href: '/favicon-32x32.png' }],
-    ['link', { rel: 'stylesheet', href: 'https://assets.pointhub.net/assets/fontawesome-6/css/all.min.css' }],
+    [
+      'link',
+      {
+        rel: 'icon',
+        type: 'image/png',
+        href: '/favicon-32x32.png',
+      },
+    ],
+    ['link', { rel: 'stylesheet', href: 'https://pointhub.net' }],
   ],
+
   themeConfig: {
-    // https://vitepress.dev/reference/default-theme-config
     logo: '/icon.png',
-    nav: nav(),
-    sidebar: {
-      '/': { base: '', items: sidebarDocs() },
-    },
-    socialLinks: [{ icon: 'github', link: 'https://github.com/point-hub/docs-starter' }],
+
+    nav: [
+      { text: 'Home', link: '/' },
+      {
+        component: 'VersionSwitcher',
+        props: {
+          versions,
+          latestVersion,
+        },
+      },
+    ],
+
+    sidebar: dynamicSidebar,
+
+    socialLinks: [
+      { icon: 'github', link: 'https://github.com' },
+    ],
+
     search: {
       provider: 'local',
     },
+
     footer: {
       message: 'Released under the MIT License.',
       copyright: 'Copyright © 2026 Pointhub',
-    },
+    }
   },
 })
-
-function nav(): DefaultTheme.NavItem[] {
-  return [
-    { text: 'Home', link: '/' },
-  ]
-}
-
-function sidebarDocs(): DefaultTheme.SidebarItem[] {
-  return [
-    {
-      text: 'Documentation',
-      items: [
-        { text: 'Introduction', link: '/introduction' },
-        { text: 'Sitemap', link: '/sitemap' },
-      ],
-    },
-    {
-      text: 'Features',
-      items: [
-        { text: '...', link: '/' },
-        { text: '...', link: '/' },
-        { text: '...', link: '/' },
-      ],
-    },
-    {
-      text: 'Resources',
-      items: [
-        { text: 'Architecture Decision Records', link: '/architecture-decision-records/' },
-        { text: 'Development Roadmap', link: '/development-roadmap/' },
-        { text: 'Developer Resources', link: '/developer-resources/' },
-      ],
-    },
-    {
-      text: 'Examples',
-      items: [
-        { text: 'Markdown Examples', link: '/markdown-examples' },
-        { text: 'Runtime API Examples', link: '/api-examples' },
-      ],
-    },
-    {
-      text: 'References',
-      items: [
-        { text: 'Config', link: '/config' },
-        { text: 'Diagram Tools', link: '/diagram-tools' },
-        { text: 'Vitepress', link: 'https://vitepress.dev/' },
-        { text: 'Mermaid.js', link: 'https://mermaid.js.org/' },
-      ],
-    },
-  ]
-}

@@ -2,7 +2,9 @@
 import { h } from 'vue'
 import type { Theme } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
+import VersionSwitcher from './version-switcher.vue'
 import './style.css'
+import './custom.css'
 
 export default {
   extends: DefaultTheme,
@@ -13,6 +15,7 @@ export default {
   },
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   enhanceApp({ app, router, siteData }) {
+    app.component('VersionSwitcher', VersionSwitcher)
     // ...
   },
 } satisfies Theme

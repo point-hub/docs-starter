@@ -1,0 +1,66 @@
+[
+  {
+    "text": "Documentation",
+    "items": [
+      {
+        "text": "Introduction",
+        "link": "/v1.0/introduction"
+      },
+      {
+        "text": "Sitemap",
+        "link": "/v1.0/sitemap"
+      }
+    ]
+  },
+  {
+    "text": "Resources",
+    "items": [
+      {
+        "text": "Architecture Decision Records",
+        "link": "/v1.0/architecture-decision-records"
+      },
+      {
+        "text": "Development Roadmap",
+        "link": "/v1.0/development-roadmap"
+      },
+      {
+        "text": "Developer Resources",
+        "link": "/v1.0/developer-resources"
+      }
+    ]
+  },
+  {
+    "text": "Examples",
+    "items": [
+      {
+        "text": "Markdown Examples",
+        "link": "/v1.0/markdown-examples"
+      },
+      {
+        "text": "Runtime API Examples",
+        "link": "/v1.0/api-examples"
+      }
+    ]
+  },
+  {
+    "text": "References",
+    "items": [
+      {
+        "text": "Config",
+        "link": "/v1.0/config"
+      },
+      {
+        "text": "Diagram Tools",
+        "link": "/v1.0/diagram-tools"
+      },
+      {
+        "text": "VitePress",
+        "link": "https://vitepress.dev"
+      },
+      {
+        "text": "Mermaid.js",
+        "link": "https://mermaid.js.org"
+      }
+    ]
+  }
+]
