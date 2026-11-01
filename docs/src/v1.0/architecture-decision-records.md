@@ -1,10 +1,6 @@
 # Architecture Decision Records
 
-<<<<<<< HEAD:docs/src/architecture-decision-records/index.md
-This section documents the brainstorming ideas and key decisions made during the development of Pointhub. 
-=======
 Architecture Decision Records (ADRs) capture the key decisions made during the brainstorming and planning phases.
->>>>>>> dev:docs/src/v1.0/architecture-decision-records.md
 
 It explains not only what was built, but also why certain design and technical decisions were chosen. This helps the team:
 
