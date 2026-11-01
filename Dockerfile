@@ -19,7 +19,7 @@ RUN bun docs:build
 # ---------------------------------------------------------------------------
 # stage 2 - runner
 # ---------------------------------------------------------------------------
-FROM nginx:1.29-alpine as runner
+FROM nginx:1.31-alpine as runner
 
 # copy nginx configuration server block file
 COPY .nginx/default.conf /etc/nginx/conf.d/default.conf
