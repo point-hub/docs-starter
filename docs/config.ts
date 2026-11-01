@@ -1,5 +1,4 @@
 
-import { type DefaultTheme } from 'vitepress'
 import { withMermaid } from 'vitepress-plugin-mermaid'
 import fs from 'node:fs'
 import path from 'node:path'
@@ -41,14 +40,6 @@ versions.sort((a, b) => {
 
 // Determine the latest available version.
 const latestVersion = versions[0] ?? 'v1.0.0'
-
-// Generate version dropdown navigation.
-const navVersionDropdownItems: DefaultTheme.NavItem[] = versions.map(
-  (version) => ({
-    text: `${version}${version === latestVersion ? ' (Latest)' : ''}`,
-    link: `/${version}/introduction`,
-  }),
-)
 
 // Load individual sidebar configurations.
 const dynamicSidebar = getSidebar(
