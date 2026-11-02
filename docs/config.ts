@@ -39,7 +39,7 @@ versions.sort((a, b) => {
 })
 
 // Determine the latest available version.
-const latestVersion = versions[0] ?? 'v1.0.0'
+const latestVersion = versions[0] ?? 'v1.0'
 
 // Load individual sidebar configurations.
 const dynamicSidebar = getSidebar(
@@ -83,7 +83,7 @@ export default withMermaid({
     logo: '/icon.png',
 
     nav: [
-      { text: 'Home', link: '/' },
+      { text: 'Home', link: '/v1.0/' },
       {
         component: 'VersionSwitcher',
         props: {
